@@ -1,1 +1,161 @@
 <!--Survey page which contains the survey questions-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Survey</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form>
+                <div class="form-group">
+                    <label for="userName">Enter your name</label>
+                    <input type="text" class="form-control" id="userName">
+                </div>
+                <div class="form-group">
+                    <label for="userPhoto">Enter your email</label>
+                    <input type="link" class="form-control" id="userPhoto">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 1</label>
+                    <select class="form-control" id="question1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 2</label>
+                    <select class="form-control" id="question2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 3</label>
+                    <select class="form-control" id="question3">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 4</label>
+                    <select class="form-control" id="question4">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 5</label>
+                    <select class="form-control" id="question5">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 6</label>
+                    <select class="form-control" id="question6">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 7</label>
+                    <select class="form-control" id="question7">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 8</label>
+                    <select class="form-control" id="question8">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 9</label>
+                    <select class="form-control" id="question9">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Question 10</label>
+                    <select class="form-control" id="question10">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" id="addPerson">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+    $("#addPerson").on("click", function(e){
+        e.preventDefault();
+        let newPerson = {
+            name : $("#userName").val().trim(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#question1").val(),
+                $("question2").val(),
+                $("#question3").val(),
+                $("question4").val(),
+                $("#question6").val(),
+                $("question7").val(),
+                $("#question8").val(),
+                $("question9").val(),
+                $("#question10").val(),
+            ]
+        };
+
+        $.post("/survey", newPerson)
+        .then(function(data){
+            console.log("survey.html",data);
+            alert("Added new Person");
+        });
+    });
+    </script>
+</body>
+
+</html>
